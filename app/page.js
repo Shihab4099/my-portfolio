@@ -1,7 +1,4 @@
-
 "use client";
-
-import { useState } from "react";
 
 import {
   Code2,
@@ -12,7 +9,6 @@ import {
   Server,
   Wrench,
   ExternalLink,
-  Send,
 } from "lucide-react";
 
 const skills = [
@@ -52,79 +48,11 @@ const services = [
 ];
 
 export default function Home() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [sending, setSending] = useState(false);
-  const [status, setStatus] = useState({
-    type: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((previous) => ({
-      ...previous,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    setSending(true);
-
-    setStatus({
-      type: "",
-      message: "",
-    });
-
-    try {
-      const response = await fetch(
-        "http://localhost:8000/api/send-message.php",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      const data = await response.json();
-
-      if (data.success) {
-        setStatus({
-          type: "success",
-          message:
-            "Your message has been sent successfully. Thank you for reaching out.",
-        });
-
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-      } else {
-        setStatus({
-          type: "error",
-          message:
-            data.message || "Something went wrong. Please try again.",
-        });
-      }
-    } catch (error) {
-      setStatus({
-        type: "error",
-        message:
-          "Unable to send your message right now. Please try again later.",
-      });
-    } finally {
-      setSending(false);
-    }
+  const openGmail = () => {
+    window.open(
+      "https://mail.google.com/mail/?view=cm&fs=1&to=khamisahmad4099@gmail.com",
+      "_blank"
+    );
   };
 
   return (
@@ -162,7 +90,7 @@ export default function Home() {
 
           <div className="socialLinks">
             <a
-              href="https://github.com/"
+              href="https://github.com/Shihab4099"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -291,7 +219,7 @@ export default function Home() {
               </a>
 
               <a
-                href="https://github.com/"
+                href="https://github.com/Shihab4099"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="secondaryButton"
@@ -380,7 +308,10 @@ export default function Home() {
 
           <div className="educationContent">
             <div className="educationLogo">
-              <img src="/suza.png" alt="State University of Zanzibar logo" />
+              <img
+                src="/suza.png"
+                alt="State University of Zanzibar logo"
+              />
             </div>
 
             <div>
@@ -434,9 +365,8 @@ export default function Home() {
           <h3>Let’s Connect</h3>
 
           <p>
-            Have a project, opportunity, or idea? Feel free to send me a
-            message. I am always open to discussing new opportunities and
-            interesting ideas.
+            Have a project, opportunity, or idea? Feel free to get in touch.
+            Click the button below to open Gmail and send me a message.
           </p>
 
           <div className="contactDetails">
@@ -449,7 +379,7 @@ export default function Home() {
               </div>
 
               <div>
-                <span>Email</span>
+                <span>Email :</span>
                 <strong>khamisahmad4099@gmail.com</strong>
               </div>
             </a>
@@ -461,95 +391,20 @@ export default function Home() {
 
               <div>
                 <span>Message</span>
-                <strong>I usually respond as soon as possible.</strong>
+                <strong>Send me a message through Gmail.</strong>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* MESSAGE FORM */}
-        <div className="messageCard">
-          <div className="messageHeader">
-            <div className="messageHeaderIcon">
-              <MessageSquare size={20} />
-            </div>
-
-            <div>
-              <h4>Send a Message</h4>
-              <p>Tell me a little about your project or idea.</p>
-            </div>
-          </div>
-
-          <form className="messageForm" onSubmit={handleSubmit}>
-            <div className="formRow">
-              <div className="formGroup">
-                <label htmlFor="name">Your Name</label>
-
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="John Doe"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  disabled={sending}
-                />
-              </div>
-
-              <div className="formGroup">
-                <label htmlFor="email">Your Email</label>
-
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="john@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  disabled={sending}
-                />
-              </div>
-            </div>
-
-            <div className="formGroup">
-              <label htmlFor="message">Your Message</label>
-
-              <textarea
-                id="message"
-                name="message"
-                rows="6"
-                placeholder="Write your message here..."
-                value={formData.message}
-                onChange={handleChange}
-                required
-                disabled={sending}
-              ></textarea>
-            </div>
-
-            {status.message && (
-              <div
-                className={`contactStatus ${
-                  status.type === "success"
-                    ? "contactStatusSuccess"
-                    : "contactStatusError"
-                }`}
-              >
-                {status.message}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              className="sendButton"
-              disabled={sending}
-            >
-              <span>{sending ? "Sending..." : "Send Message"}</span>
-
-              <Send size={17} />
-            </button>
-          </form>
+          {/* GMAIL BUTTON */}
+          <button
+            type="button"
+            className="sendButton"
+            onClick={openGmail}
+          >
+            <span>Send Me a Message</span>
+            <Mail size={17} />
+          </button>
         </div>
       </section>
 
@@ -559,7 +414,7 @@ export default function Home() {
 
         <div className="footerLinks">
           <a
-            href="https://github.com/"
+            href="https://github.com/Shihab4099"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -574,4 +429,3 @@ export default function Home() {
     </main>
   );
 }
-
