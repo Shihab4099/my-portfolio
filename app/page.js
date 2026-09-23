@@ -5,7 +5,6 @@ import {
   Database,
   Globe,
   Mail,
-  MessageSquare,
   Server,
   Wrench,
   ExternalLink,
@@ -48,11 +47,12 @@ const services = [
 ];
 
 export default function Home() {
+  // Open Gmail Compose directly
   const openGmail = () => {
-    window.open(
-      "https://mail.google.com/mail/?view=cm&fs=1&to=khamisahmad4099@gmail.com",
-      "_blank"
-    );
+    const gmailUrl =
+      "https://mail.google.com/mail/?view=cm&fs=1&to=khamisahmad4099@gmail.com";
+
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -365,8 +365,8 @@ export default function Home() {
           <h3>Let’s Connect</h3>
 
           <p>
-            Have a project, opportunity, or idea? Feel free to get in touch.
-            Click the button below to open Gmail and send me a message.
+            Have a project, opportunity, or idea? Click the button below to
+            open Gmail and send me a message.
           </p>
 
           <div className="contactDetails">
@@ -379,21 +379,10 @@ export default function Home() {
               </div>
 
               <div>
-                <span>Email :</span>
+                <span>Email</span>
                 <strong>khamisahmad4099@gmail.com</strong>
               </div>
             </a>
-
-            <div className="contactDetail">
-              <div className="contactDetailIcon">
-                <MessageSquare size={18} />
-              </div>
-
-              <div>
-                <span>Message</span>
-                <strong>Send me a message through Gmail.</strong>
-              </div>
-            </div>
           </div>
 
           {/* GMAIL BUTTON */}
