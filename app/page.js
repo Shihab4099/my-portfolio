@@ -47,14 +47,6 @@ const services = [
 ];
 
 export default function Home() {
-  // Open Gmail Compose directly
-  const openGmail = () => {
-    const gmailUrl =
-      "https://mail.google.com/mail/?view=cm&fs=1&to=khamisahmad4099@gmail.com";
-
-    window.open(gmailUrl, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <main className="portfolio">
       {/* ================= HERO ================= */}
@@ -386,14 +378,15 @@ export default function Home() {
           </div>
 
           {/* GMAIL BUTTON */}
-          <button
-            type="button"
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=khamisahmad4099@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="sendButton"
-            onClick={openGmail}
           >
             <span>Send Me a Message</span>
             <Mail size={17} />
-          </button>
+          </a>
         </div>
       </section>
 
