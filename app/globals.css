@@ -206,7 +206,9 @@ textarea {
 }
 
 
-/* Header */
+/* =========================================================
+   CARD HEADER
+========================================================= */
 
 .cardHeader {
   display: flex;
@@ -636,7 +638,9 @@ textarea {
 }
 
 
-/* SERVICES */
+/* =========================================================
+   SERVICES
+========================================================= */
 
 .servicesGrid {
   display: grid;
@@ -681,11 +685,11 @@ textarea {
 ========================================================= */
 
 .contactSection {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 60px;
-  align-items: start;
   padding: 25px 0 90px;
+}
+
+.contactIntro {
+  max-width: 650px;
 }
 
 .contactIntro h3 {
@@ -696,109 +700,57 @@ textarea {
 }
 
 .contactIntro > p {
-  max-width: 390px;
+  max-width: 500px;
   font-size: 14px;
   line-height: 1.8;
   color: #718096;
   margin-bottom: 25px;
 }
 
-.contactEmail {
+
+/* =========================================================
+   CONTACT EMAIL
+========================================================= */
+
+.contactDetails {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.contactDetail {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   color: #176fe0;
   font-size: 13px;
   font-weight: 600;
 }
 
-
-/* MESSAGE CARD */
-
-.messageCard {
-  padding: 30px;
-  border: 1px solid #e2e8ef;
-  border-radius: 10px;
-  background: #ffffff;
-}
-
-.messageHeader {
+.contactDetailIcon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding-bottom: 20px;
-  margin-bottom: 22px;
-  border-bottom: 1px solid #e8edf2;
+  justify-content: center;
+  border-radius: 6px;
+  background: #f2f6fa;
   color: #176fe0;
 }
 
-.messageHeader h4 {
-  color: #102f59;
-  font-size: 17px;
-  margin-bottom: 2px;
-}
-
-.messageHeader p {
-  color: #8492a2;
-  font-size: 12px;
-}
-
-.messageForm {
-  display: flex;
-  flex-direction: column;
-  gap: 17px;
-}
-
-.formRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.formGroup label {
-  font-size: 11px;
-  font-weight: 600;
-  color: #53677e;
-}
-
-.formGroup input,
-.formGroup textarea {
-  width: 100%;
-  border: 1px solid #dce3ea;
-  border-radius: 6px;
-  background: #fafbfc;
-  color: #102f59;
-  outline: none;
-  padding: 11px 12px;
+.contactDetail strong {
+  color: #176fe0;
   font-size: 13px;
-  transition: 0.2s ease;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.formGroup input {
-  height: 43px;
-}
 
-.formGroup textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-.formGroup input::placeholder,
-.formGroup textarea::placeholder {
-  color: #a4afbb;
-}
-
-.formGroup input:focus,
-.formGroup textarea:focus {
-  border-color: #176fe0;
-  background: #ffffff;
-}
+/* =========================================================
+   GMAIL SEND BUTTON
+========================================================= */
 
 .sendButton {
   align-self: flex-start;
@@ -892,8 +844,7 @@ textarea {
   }
 
   .contactSection {
-    grid-template-columns: 1fr;
-    gap: 35px;
+    padding-top: 20px;
   }
 }
 
@@ -930,8 +881,7 @@ textarea {
 
   .infoCard,
   .educationCard,
-  .servicesCard,
-  .messageCard {
+  .servicesCard {
     padding: 24px;
   }
 
@@ -949,10 +899,6 @@ textarea {
   }
 
   .servicesGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .formRow {
     grid-template-columns: 1fr;
   }
 
@@ -975,7 +921,18 @@ textarea {
   }
 
   .heroContent h1 {
-    font-size: 42px;
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  .heroContent h2 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .heroDescription {
+    font-size: 14px;
+    line-height: 1.75;
   }
 
   .heroButtons {
@@ -994,73 +951,14 @@ textarea {
 
   .imageFrame {
     width: 100%;
-    height: 360px;
-  }
-
-  .skillsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .projectButtons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .projectButtons .primaryButton,
-  .projectButtons .secondaryButton {
-    width: 100%;
-  }
-
-  .dashboardMockup {
-    grid-template-columns: 70px 1fr;
-  }
-
-  .mockMain {
-    padding: 12px;
-  }
-
-  .mockSidebar {
-    padding: 12px 6px;
-  }
-
-  .mockNav {
-    width: 42px;
-  }
-
-  /* =========================================================
-   MOBILE POLISH
-========================================================= */
-
-@media (max-width: 480px) {
-
-  /* Hero */
-  .heroContent h1 {
-    font-size: 40px;
-    line-height: 1;
-  }
-
-  .heroContent h2 {
-    font-size: 18px;
-    line-height: 1.5;
-  }
-
-  .heroDescription {
-    font-size: 14px;
-    line-height: 1.75;
-  }
-
-  /* Profile image */
-  .heroImageWrapper {
-    width: 100%;
-  }
-
-  .imageFrame {
-    width: 100%;
     max-width: 340px;
     height: 400px;
   }
 
-  /* Information cards */
+  .heroImageWrapper {
+    width: 100%;
+  }
+
   .infoCard {
     min-height: auto;
     padding: 22px;
@@ -1070,7 +968,6 @@ textarea {
     font-size: 23px;
   }
 
-  /* Project */
   .projectCard {
     padding: 20px;
   }
@@ -1092,7 +989,6 @@ textarea {
     padding: 5px 8px;
   }
 
-  /* Project mockup */
   .projectPreview {
     width: 100%;
   }
@@ -1142,7 +1038,6 @@ textarea {
     padding: 0 7px;
   }
 
-  /* Education */
   .educationContent {
     align-items: flex-start;
     gap: 14px;
@@ -1153,23 +1048,36 @@ textarea {
     height: 60px;
   }
 
-  /* Contact */
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
   .contactIntro h3 {
     font-size: 30px;
   }
 
-  .messageCard {
-    padding: 20px;
+  /* EMAIL + ICON STAY ON ONE LINE */
+  .contactDetails {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 3px;
+  }
+
+  .contactDetail {
+    flex-shrink: 0;
+  }
+
+  .contactDetail strong {
+    font-size: 12px;
   }
 
   .sendButton {
     width: 100%;
   }
 
-  /* Footer */
   .footerLinks {
     flex-wrap: wrap;
     justify-content: center;
   }
-}
 }
