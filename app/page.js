@@ -371,7 +371,6 @@ export default function Home() {
               </div>
 
               <div>
-                <span>Email</span>
                 <strong>khamisahmad4099@gmail.com</strong>
               </div>
             </a>
@@ -380,12 +379,10 @@ export default function Home() {
           {/* GMAIL BUTTON */}
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=khamisahmad4099@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
             className="sendButton"
           >
-            <span>Send Me a Message</span>
             <Mail size={17} />
+            <span>Send Me a Message</span>
           </a>
         </div>
       </section>
